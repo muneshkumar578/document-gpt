@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project implements a document-based GPT system that answers questions based on a collection of internal documents. The system leverages OpenAI's powerful tools, including the GPT model, Vector stores for efficient document indexing and retrieval, and OpenAI Assistants for enhanced interaction capabilities.
+This project implements a document-based GPT system that answers questions based on a collection of internal documents. The system leverages OpenAI's tools, including the GPT model, Vector stores for efficient document indexing and retrieval, and OpenAI Assistants for enhanced interaction capabilities.
 
 ### Approach
 
-I chose to use the OpenAI for this implementation due to ease of integration, allowing for rapid development within the given time constraints (i.e. 2 days). This approach prioritizes quick deployment and high-performance results over the alternative of using open-source models, which would require more setup time and infrastructure management.
+I chose to use the OpenAI for this implementation due to ease of integration, allowing for rapid development within the given time constraints (i.e. 2 days). This approach prioritizes quick deployment and desired results over the alternative of using open-source models, which would require more setup time and infrastructure management.
 
 ## Features
 
