@@ -1,5 +1,5 @@
 import logging
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from starlette.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from fastapi.responses import StreamingResponse
@@ -21,6 +21,7 @@ async def lifespan(api: FastAPI):
 
     document_assistant = DocumentAssistantManager(update_assistant_flag=True)
     await document_assistant.prepare_assistant_async()
+    api.state.document_assistant = document_assistant
 
     document_gpt_service: DocumentGPTService = DocumentGPTService(client=document_assistant.client,
         assistant_id=document_assistant.assistant.id)
@@ -64,3 +65,13 @@ async def query(query: Query):
 async def get_conversation_messages_by_thread_id(thread_id: str):
     document_gpt_service: DocumentGPTService = api.state.document_gpt_service
     return await document_gpt_service.messages_list_async(thread_id)
+
+@api.post("/upload")
+async def upload_document(file: UploadFile = File(...)):
+    document_gpt_service: DocumentGPTService = api.state.document_gpt_service
+    await document_gpt_service.upload_new_document_async(file)
+
+    document_assistant: DocumentAssistantManager = api.state.document_assistant
+    await document_assistant.prepare_assistant_async()
+
+    return {"message": "Document uploaded successfully!"}

@@ -1,5 +1,7 @@
 import json
 import logging
+import os
+from fastapi import File, UploadFile
 from openai import AsyncOpenAI
 from ..managers.document_thread_manager import DocumentThreadManager
 
@@ -40,3 +42,14 @@ class DocumentGPTService:
         except Exception as e:
             logging.error(f"An error occurred while listing messages: {e}")
             return []
+        
+    async def upload_new_document_async(self, file: UploadFile = File(...)):
+        try:
+            documents_path = os.environ.get("DOCUMENTS_PATH")
+
+            # Save the file in the documents directory
+            file_path = os.path.join(documents_path, file.filename)
+            with open(file_path, "wb") as f:
+                f.write(file.file.read())
+        except Exception as e:
+            logging.error(f"An error occurred while uploading document: {e}")
