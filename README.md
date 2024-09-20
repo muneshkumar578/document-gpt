@@ -87,7 +87,7 @@ If you prefer to run the application locally:
 
 4. Run the backend:
    ```
-   uvicorn app.main:app --reload
+   uvicorn app.main:api --host 127.0.0.1 --port 8000
    ```
 
 ## Usage
