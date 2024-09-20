@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"query1\": \"What are the standard work hours in ABC Inc.?\",\r\n    \"thread_id\": \"\"\r\n}",
+					"raw": "{\r\n    \"query\": \"What are the standard work hours in ABC Inc.?\",\r\n    \"thread_id\": \"\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/conversation/thread_do9JYhYzWyVaT3DZdnC1mVkwm",
+					"raw": "http://127.0.0.1:8000/conversation/thread_y8yY3lFUEnw2LQ8M5i1Zx58Nm",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -54,7 +54,7 @@
 					"port": "8000",
 					"path": [
 						"conversation",
-						"thread_do9JYhYzWyVaT3DZdnC1mVkwm"
+						"thread_y8yY3lFUEnw2LQ8M5i1Zx58Nm"
 					]
 				}
 			},
